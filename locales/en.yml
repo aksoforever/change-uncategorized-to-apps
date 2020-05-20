@@ -50,6 +50,21 @@ en:
   apps_open_2_text: "Share Technology, Skills and Interests"
   apps_open_2_url: "https://forums.quectel.com/"
   apps_open_3_title: "Support"
-  apps_open_3_text: "Official Document &amp; Firmware Sharing"
+  apps_open_3_text: "Official Document & Firmware Sharing"
   apps_open_3_url: "https://support.quectel.com/en/login.html"
+  apps_open_4_title: "QuecCloud"
+  apps_open_4_text: "Quectel IoT cloud Service Platform"
+  apps_open_4_url: "https://iot.quectel.com/"
+  apps_open_5_title: "Quectel Cloud"
+  apps_open_5_text: "Quectel Cloud Iot Management"
+  apps_open_5_url: "http://cm.quectel-service.com/"
+  apps_open_6_title: "E-Service"
+  apps_open_6_text: "Customer Inquiry Management System"
+  apps_open_6_url: "https://e-service.quectel.com/en/support/login/new"
+  
+  apps_system_title: "Service $ Management System"
+  apps_system_1_title: "Property"
+  apps_system_1_text: "Intellectual Property Management System"
+  apps_system_1_url: "https://quectel-sh.ipms.innosnap.com/users/login"
+  
   

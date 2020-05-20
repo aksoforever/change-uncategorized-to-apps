@@ -1,0 +1,9 @@
+en:
+  apps_title: "Apps center"
+  apps_description: "The following applications need to be used in the company's network environment. If you have any questions, please contact the relevant person in charge."
+  
+  apps_internal_title: "Internal Applications"
+  apps_internal_1_icon: "tasks"
+  apps_internal_1_title: "BPM"
+  apps_internal_1_text: "Business Management Process System"
+  apps_internal_1_url: "http://bpm.quectel.com/"

@@ -36,11 +36,11 @@
 .eip-card{position:relative;display:inline-block;background-color:#f8f8f8;border:1px solid #e0e0e0;margin-bottom:3vh;transition:box-shadow .25s}
 .eip-card .check-display{position:absolute;left:5px;top:5px}
 .eip-card .responsible{position:absolute;right:5px;top:5px;font-weight:400;color:#919191;font-size:.9em}
-.eip-card .eip-contents{display:flex;min-height:100px;height:100%;padding:0 5%}
+.eip-card .eip-contents{display:flex;min-height:80px;height:100%;padding:0 5%}
 .eip-card .eip-contents .eip-link{color:#666}
 .eip-card .eip-contents .eip-icon{display:flex;flex:0 0 auto;width:1.1em;margin-right:2%;align-items:center;justify-content:center;font-size:3em}
 .eip-card .eip-contents .eip-icon a{width:100%}
-.eip-card .eip-contents .eip-icon img{width:100%;max-width:65px;max-height:80px}
+.eip-card .eip-contents .eip-icon img{width:100%;max-width:65px;max-height:70px}
 .eip-card .eip-contents .eip-icon.eip-type-gold .fa{color:#e7c300!important}
 .eip-card .eip-contents .eip-icon.eip-type-silver .fa{color:silver!important}
 .eip-card .eip-contents .eip-icon.eip-type-bronze .fa{color:#145ca6!important}

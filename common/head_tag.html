@@ -50,31 +50,28 @@
          <!--SECTION HEADER-->
          <div class="section-header">
             <!--TITLE-->
-            <h1 class="x-title"> 应用中心 </h1>
-            <p class="alert alert-info">下面部分应用需在公司网络环境下使用，如有问题，请联系相关负责人。</p>
+            <h1 class="x-title"> {{theme-i18n "apps_title"}} </h1>
+            <p class="alert alert-info">{{theme-i18n "apps_description"}}</p>
          </div>
          <!--/END SECTION HEADER-->
          <!--BANNER CONTENT WRAP-->
          <div id="banner-content_wrap">
             <!--SINGLE BOX-->
             <div class="single-box">
-               <h2>Internal Applications 内部应用</h2>
+               <h2>{{theme-i18n "apps_internal_title"}}</h2>
                <div class="eip-group-list">
                   <div class="eip-card medium eip-shadow">
-                     <span class="responsible">负责人:<a href="/u/david.zhao/" title="responsible">David.Zhao(赵凡)</a></span>
                      <div class="eip-contents">
                         <div class="eip-icon eip-type-bronze">
-                           <a href="http://bpm.quectel.com/">
-                              <svg class="fa d-icon d-icon-tasks svg-icon svg-string" xmlns="http://www.w3.org/2000/svg">
-                                 <use xlink:href="#tasks"></use>
-                              </svg>
+                           <a href="{{theme-i18n "apps_internal_1_url"}}">
+                              {{d-icon '{{theme-i18n "apps_internal_1_icon"}}'}}
                            </a>
                         </div>
                         <div class="eip-info">
                            <div class="eip-info-item">
-                              <a href="http://bpm.quectel.com/" target="_Blank" class="eip-link">
-                                 <h3>BPM 流程管理</h3>
-                                 <div class="eip-summary">Business Management Process System<br><span class="primary-low-mid font-down-1">业务管理流程，采购申请，报销等</span></div>
+                              <a href="{{theme-i18n "apps_internal_1_url"}}" target="_Blank" class="eip-link">
+                                 <h3>{{theme-i18n "apps_internal_1_title"}}</h3>
+                                 <div class="eip-summary">{{theme-i18n "apps_internal_1_text"}}</div>
                               </a>
                            </div>
                         </div>

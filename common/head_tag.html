@@ -1,0 +1,787 @@
+<script type="text/discourse-plugin" version="0.8">
+  // This is the plugin outlet, followed by a custom name for the component
+  api.registerConnectorClass("below-site-header", "custom-apps-page", {
+
+    // Setting up our component
+    setupComponent(args, component) {
+
+     // Next we're getting the site setting 'top_menu',
+     // splitting the values into an array,
+     // and adding a leading slash
+     var topMenuRoutes = 
+        Discourse.SiteSettings.top_menu.split('|')
+        .map(function(route) {return '/' + route});
+      
+     // The first page listed in the 'top_menu' setting is your homepage
+     // lets assign it to a variable
+     var homeRoute = topMenuRoutes[0];
+  
+     // This calls our code whenever the page changes
+     api.onPageChange((url) => {
+
+        // Check if we're on the homepage 
+        if (url === "/c/apps/1" ){ 
+          // If it's the homepage add the 'custom-homepage' class to HTML tag
+          // and set 'displayCustomHomepage' to true
+          document.querySelector("html").classList.add("custom-apps-page"); 
+          component.set("displayCustomBanner", true); 
+        } else {  
+          // If we're not on the homepage remove the class
+          // and set `displayCustomHomepage` to false
+          document.querySelector("html").classList.remove("custom-apps-page"); 
+          component.set("displayCustomBanner", false); 
+        }
+      });
+    }
+    
+  });
+
+</script>
+
+<script type="text/x-handlebars" data-template-name="/connectors/below-site-header/custom-apps-page">
+  {{#if displayCustomBanner}} 
+    
+    <div class="static-page wrap">
+    <!--SECTION BANNER BOX-->
+<section class="">
+   <div class="container">
+      <div class="row">
+         <!--EXPAND COLLAPSE BANNER-->
+         <!--SECTION HEADER-->
+         <div class="section-header">
+            <!--TITLE-->
+            <h1 class="x-title"> 应用中心 </h1>
+            <p class="alert alert-info">下面部分应用需在公司网络环境下使用，如有问题，请联系相关负责人。</p>
+         </div>
+         <!--/END SECTION HEADER-->
+         <!--BANNER CONTENT WRAP-->
+         <div id="banner-content_wrap">
+            <!--SINGLE BOX-->
+            <div class="single-box">
+               <h2>Internal Applications 内部应用</h2>
+               <div class="eip-group-list">
+                  <div class="eip-card medium eip-shadow">
+                     <span class="responsible">负责人:<a href="/u/david.zhao/" title="responsible">David.Zhao(赵凡)</a></span>
+                     <div class="eip-contents">
+                        <div class="eip-icon eip-type-bronze">
+                           <a href="http://bpm.quectel.com/">
+                              <svg class="fa d-icon d-icon-tasks svg-icon svg-string" xmlns="http://www.w3.org/2000/svg">
+                                 <use xlink:href="#tasks"></use>
+                              </svg>
+                           </a>
+                        </div>
+                        <div class="eip-info">
+                           <div class="eip-info-item">
+                              <a href="http://bpm.quectel.com/" target="_Blank" class="eip-link">
+                                 <h3>BPM 流程管理</h3>
+                                 <div class="eip-summary">Business Management Process System<br><span class="primary-low-mid font-down-1">业务管理流程，采购申请，报销等</span></div>
+                              </a>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="eip-card medium">
+                     <div class="eip-contents">
+                        <div class="eip-icon eip-type-silver">
+                           <a href="#">
+                              <svg class="fa d-icon d-icon-users svg-icon svg-string" xmlns="http://www.w3.org/2000/svg">
+                                 <use xlink:href="#users"></use>
+                              </svg>
+                           </a>
+                        </div>
+                        <div class="eip-info">
+                           <div class="eip-info-item">
+                              <a href="#" class="eip-link">
+                                 <h3>EHR 人事系统</h3>
+                                 <div class="eip-summary">HR system is in progress, please wait<br><span class="primary-low-mid font-down-1">人事系统即将到来，请您耐心等待</span></div>
+                              </a>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="eip-card medium eip-shadow">
+                     <div class="eip-contents">
+                        <div class="eip-icon eip-type-bronze">
+                           <a href="http://mail.quectel.com/">
+                              <svg class="fa d-icon d-icon-envelope svg-icon svg-string" xmlns="http://www.w3.org/2000/svg">
+                                 <use xlink:href="#envelope"></use>
+                              </svg>
+                           </a>
+                        </div>
+                        <div class="eip-info">
+                           <div class="eip-info-item">
+                              <a href="http://mail.quectel.com/" target="_Blank" class="eip-link">
+                                 <h3>Email 邮箱</h3>
+                                 <div class="eip-summary">Web Enterprise Mail Log-in<br><span class="primary-low-mid font-down-1">企业邮箱网页登入端</span></div>
+                              </a>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="eip-card medium eip-shadow">
+                     <span class="responsible">负责人: <a href="/u/oliver.li/" title="responsible">Oliver.li(李伯虎)</a></span>
+                     <div class="eip-contents">
+                        <div class="eip-icon eip-type-bronze">
+                           <a href="http://meeting.quectel.com:9188/login">
+                              <svg class="fa d-icon d-icon-microphone-alt svg-icon svg-string" xmlns="http://www.w3.org/2000/svg">
+                                 <use xlink:href="#microphone-alt"></use>
+                              </svg>
+                           </a>
+                        </div>
+                        <div class="eip-info">
+                           <div class="eip-info-item">
+                              <a href="http://meeting.quectel.com:9188/login" target="_Blank" class="eip-link">
+                                 <h3>Meeting  会议预订</h3>
+                                 <div class="eip-summary">Business Management Process System<br><span class="primary-low-mid font-down-1">会议室预订系统</span></div>
+                              </a>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="eip-card medium eip-shadow">
+                     <div class="eip-contents">
+                        <div class="eip-icon eip-type-bronze">
+                           <a href="http://password.quectel.com:65201/">
+                              <svg class="fa d-icon d-icon-key svg-icon svg-string" xmlns="http://www.w3.org/2000/svg">
+                                 <use xlink:href="#key"></use>
+                              </svg>
+                           </a>
+                        </div>
+                        <div class="eip-info">
+                           <div class="eip-info-item">
+                              <a href="http://password.quectel.com:65201/" target="_Blank" class="eip-link">
+                                 <h3>Password 邮箱密码</h3>
+                                 <div class="eip-summary">Modify the Email Password<br><span class="primary-low-mid font-down-1">修改企业邮箱密码地址</span></div>
+                              </a>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="eip-card medium eip-shadow">
+                     <div class="eip-contents">
+                        <div class="eip-icon eip-type-bronze">
+                           <a href="/c/bbs/68">
+                              <svg class="fa d-icon d-icon-comment svg-icon svg-string" xmlns="http://www.w3.org/2000/svg">
+                                 <use xlink:href="#comment"></use>
+                              </svg>
+                           </a>
+                        </div>
+                        <div class="eip-info">
+                           <div class="eip-info-item">
+                              <a href="/c/bbs/68" class="eip-link">
+                                 <h3>BBS 员工社区</h3>
+                                 <div class="eip-summary">BBS is in progress, please wait<br><span class="primary-low-mid font-down-1">公司制度、员工学习、交流社区!</span></div>
+                              </a>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <div class="colored-line-full"></div>
+               <h2>Semi-open Applications 半开放应用</h2>
+               <div class="eip-group-list">
+                  <div class="eip-card medium  eip-shadow">
+                     <div class="eip-contents">
+                        <div class="eip-icon eip-type-bronze">
+                           <a href="https://cnquectel.sharepoint.com/Home/default.aspx">
+                              <svg class="fa d-icon d-icon-fab-microsoft svg-icon svg-string" xmlns="http://www.w3.org/2000/svg">
+                                 <use xlink:href="#fab-microsoft"></use>
+                              </svg>
+                           </a>
+                        </div>
+                        <div class="eip-info">
+                           <div class="eip-info-item">
+                              <a href="https://cnquectel.sharepoint.com/Home/default.aspx" class="eip-link">
+                                 <h3>SharePoint </h3>
+                                 <div class="eip-summary">Web-based collaborative platform<br><span class="primary-low-mid font-down-1">微软 SharePoint 共享、整理和查找信息</span></div>
+                              </a>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="eip-card medium eip-shadow">
+                     <div class="eip-contents">
+                        <div class="eip-icon eip-type-bronze">
+                           <a href="https://quectel.my.salesforce.com/">
+                              <svg class="fa d-icon d-icon-fab-salesforce svg-icon svg-string" xmlns="http://www.w3.org/2000/svg">
+                                 <use xlink:href="#fab-salesforce"></use>
+                              </svg>
+                           </a>
+                        </div>
+                        <div class="eip-info">
+                           <div class="eip-info-item">
+                              <a href="https://quectel.my.salesforce.com/" target="_Blank" class="eip-link">
+                                 <h3>Salesforce CRM 系统</h3>
+                                 <div class="eip-summary">Customer relationship management<br><span class="primary-low-mid font-down-1">CRM 客户关系管理系统</span></div>
+                              </a>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="eip-card medium  eip-shadow">
+                     <div class="eip-contents">
+                        <div class="eip-icon eip-type-bronze">
+                           <a href="http://project.quectel.com:8089/">
+                              <svg class="fa d-icon d-icon-project-diagram svg-icon svg-string" xmlns="http://www.w3.org/2000/svg">
+                                 <use xlink:href="#project-diagram"></use>
+                              </svg>
+                           </a>
+                        </div>
+                        <div class="eip-info">
+                           <div class="eip-info-item">
+                              <a href="http://project.quectel.com:8089/" class="eip-link">
+                                 <h3>Project 项目</h3>
+                                 <div class="eip-summary">Project Management System<br><span class="primary-low-mid font-down-1">项目管理系统</span></div>
+                              </a>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="eip-card medium eip-shadow">
+                     <div class="eip-contents">
+                        <div class="eip-icon eip-type-bronze">
+                           <a href="http://training.quectel.com/">
+                              <svg class="fa d-icon d-icon-chalkboard-teacher svg-icon svg-string" xmlns="http://www.w3.org/2000/svg">
+                                 <use xlink:href="#chalkboard-teacher"></use>
+                              </svg>
+                           </a>
+                        </div>
+                        <div class="eip-info">
+                           <div class="eip-info-item">
+                              <a href="http://training.quectel.com/" target="_Blank" class="eip-link">
+                                 <h3>Training 培训管理</h3>
+                                 <div class="eip-summary">Training Management Platform<br><span class="primary-low-mid font-down-1">培训管理平台</span></div>
+                              </a>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="eip-card medium eip-shadow">
+                     <div class="eip-contents">
+                        <div class="eip-icon eip-type-bronze">
+                           <a href="http://192.168.21.30/srms/index.php/User/login.html">
+                              <svg class="fa d-icon d-icon-code svg-icon svg-string" xmlns="http://www.w3.org/2000/svg">
+                                 <use xlink:href="#code"></use>
+                              </svg>
+                           </a>
+                        </div>
+                        <div class="eip-info">
+                           <div class="eip-info-item">
+                              <a href="http://192.168.21.30/srms/index.php/User/login.html" target="_Blank" class="eip-link">
+                                 <h3>Software-Q 软件质量</h3>
+                                 <div class="eip-summary">Software Quality Management Platform<br><span class="primary-low-mid font-down-1">软件质量管理平台</span></div>
+                              </a>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="eip-card medium  eip-shadow">
+                     <div class="eip-contents">
+                        <div class="eip-icon eip-type-bronze">
+                           <a href="http://dms.quectel.com/seeddms5/out/out.Login.php">
+                              <svg class="fa d-icon d-icon-laptop-code svg-icon svg-string" xmlns="http://www.w3.org/2000/svg">
+                                 <use xlink:href="#laptop-code"></use>
+                              </svg>
+                           </a>
+                        </div>
+                        <div class="eip-info">
+                           <div class="eip-info-item">
+                              <a href="http://dms.quectel.com/seeddms5/out/out.Login.php" target="_Blank" class="eip-link">
+                                 <h3>DMS 软件管理</h3>
+                                 <div class="eip-summary">Software Quality Management Platform<br><span class="primary-low-mid font-down-1">软件质量管理系统</span></div>
+                              </a>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <div class="colored-line-full"></div>
+               <h2>Open Applications 开放应用</h2>
+               <div class="eip-group-list">
+                  <div class="eip-card medium eip-shadow">
+                     <div class="eip-contents">
+                        <div class="eip-icon eip-type-bronze">
+                           <a href="https://www.quectel.com/">
+                              <svg class="fa d-icon d-icon-home svg-icon svg-string" xmlns="http://www.w3.org/2000/svg">
+                                 <use xlink:href="#home"></use>
+                              </svg>
+                           </a>
+                        </div>
+                        <div class="eip-info">
+                           <div class="eip-info-item">
+                              <a href="https://www.quectel.com/" target="_Blank" class="eip-link">
+                                 <h3>Official Website  公司官网</h3>
+                                 <div class="eip-summary">Official Website<br><span class="primary-low-mid font-down-1">公司官网</span></div>
+                              </a>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="eip-card medium  eip-shadow">
+                     <div class="eip-contents">
+                        <div class="eip-icon eip-type-bronze">
+                           <a href="https://forums.quectel.com/">
+                              <svg class="fa d-icon d-icon-comments svg-icon svg-string" xmlns="http://www.w3.org/2000/svg">
+                                 <use xlink:href="#comments"></use>
+                              </svg>
+                           </a>
+                        </div>
+                        <div class="eip-info">
+                           <div class="eip-info-item">
+                              <a href="https://forums.quectel.com/" class="eip-link">
+                                 <h3>Technical Forums 技术论坛</h3>
+                                 <div class="eip-summary">Share Technology, Skills and Interests
+                                    <br><span class="primary-low-mid font-down-1">分享技术，知识与兴趣的社区</span>
+                                 </div>
+                              </a>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="eip-card medium eip-shadow">
+                     <div class="eip-contents">
+                        <div class="eip-icon eip-type-bronze">
+                           <a href="https://support.quectel.com/en/login.html">
+                              <svg class="fa d-icon d-icon-file-download svg-icon svg-string" xmlns="http://www.w3.org/2000/svg">
+                                 <use xlink:href="#file-download"></use>
+                              </svg>
+                           </a>
+                        </div>
+                        <div class="eip-info">
+                           <div class="eip-info-item">
+                              <a href="https://support.quectel.com/en/login.html" target="_Blank" class="eip-link">
+                                 <h3>Support 文档支持</h3>
+                                 <div class="eip-summary">Official Document &amp; Firmware Sharing<br><span class="primary-low-mid font-down-1">官方文档，固件共享及下载服务</span>
+                                 </div>
+                              </a>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="eip-card medium eip-shadow">
+                     <div class="eip-contents">
+                        <div class="eip-icon eip-type-bronze">
+                           <a href="https://iot.quectel.com/" target="_Blank">
+                              <svg class="fa d-icon d-icon-cloud  svg-icon svg-string" xmlns="http://www.w3.org/2000/svg">
+                                 <use xlink:href="#cloud"></use>
+                              </svg>
+                           </a>
+                        </div>
+                        <div class="eip-info">
+                           <div class="eip-info-item">
+                              <a href="https://iot.quectel.com/" target="_Blank" class="eip-link">
+                                 <h3>QuecCloud 物联网云服务</h3>
+                                 <div class="eip-summary">Quectel IoT cloud Service Platform<br><span class="primary-low-mid font-down-1">移远物联网云服务平台</span></div>
+                              </a>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="eip-card medium  eip-shadow">
+                     <div class="eip-contents">
+                        <div class="eip-icon eip-type-bronze">
+                           <a href="http://cm.quectel-service.com/" target="_Blank">
+                              <svg class="fa d-icon d-icon-code svg-icon svg-string" xmlns="http://www.w3.org/2000/svg">
+                                 <use xlink:href="#code"></use>
+                              </svg>
+                           </a>
+                        </div>
+                        <div class="eip-info">
+                           <div class="eip-info-item">
+                              <a href="http://cm.quectel-service.com/" target="_Blank" class="eip-link">
+                                 <h3>Quectel Cloud  移云万物</h3>
+                                 <div class="eip-summary">Quectel Cloud Iot Management Platform<br><span class="primary-low-mid font-down-1">移远万物连接管理平台</span></div>
+                              </a>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="eip-card medium  eip-shadow">
+                     <div class="eip-contents">
+                        <div class="eip-icon eip-type-bronze">
+                           <a href="https://e-service.quectel.com/en/support/login/new" target="_Blank">
+                              <svg class="fa d-icon d-icon-stream svg-icon svg-string" xmlns="http://www.w3.org/2000/svg">
+                                 <use xlink:href="#stream"></use>
+                              </svg>
+                           </a>
+                        </div>
+                        <div class="eip-info">
+                           <div class="eip-info-item">
+                              <a href="https://e-service.quectel.com/en/support/login/new" target="_Blank" class="eip-link">
+                                 <h3>E-Service  E 服务</h3>
+                                 <div class="eip-summary">Customer Inquiry Management System<br><span class="primary-low-mid font-down-1">客户咨询管理系统</span></div>
+                              </a>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <div class="colored-line-full"></div>
+               <h2>Service &amp; Management System  服务与管理系统</h2>
+               <div class="eip-group-list">
+                 
+                  <div class="eip-card medium eip-shadow">
+                     <div class="eip-contents">
+                        <div class="eip-icon eip-type-bronze">
+                           <a href="https://quectel-sh.ipms.innosnap.com/users/login">
+                              <svg class="fa d-icon d-icon-file-signature svg-icon svg-string" xmlns="http://www.w3.org/2000/svg">
+                                 <use xlink:href="#file-signature"></use>
+                              </svg>
+                           </a>
+                        </div>
+                        <div class="eip-info">
+                           <div class="eip-info-item">
+                              <a href="https://quectel-sh.ipms.innosnap.com/users/login" target="_Blank" class="eip-link">
+                                 <h3>Property  知识产权</h3>
+                                 <div class="eip-summary">Intellectual Property Management System<br><span class="primary-low-mid font-down-1">Innosnap 知识产权管理系统</span></div>
+                              </a>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+
+                  <div class="eip-card medium eip-shadow">
+                     <div class="eip-contents">
+                        <div class="eip-icon eip-type-bronze">
+                           <a href="https://analytics.zhihuiya.com/" target="_Blank">
+                              <svg class="fa d-icon d-icon-file-signature svg-icon svg-string" xmlns="http://www.w3.org/2000/svg">
+                                 <use xlink:href="#file-signature"></use>
+                              </svg>
+                           </a>
+                        </div>
+                        <div class="eip-info">
+                           <div class="eip-info-item">
+                              <a href="https://analytics.zhihuiya.com/" target="_Blank" class="eip-link">
+                                 <h3>Patent  专利数据库</h3>
+                                 <div class="eip-summary">Patent database Management System<br><span class="primary-low-mid font-down-1">专利数据库系统系统</span></div>
+                              </a>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+
+                  
+                  <div class="eip-card medium  eip-shadow">
+                     <div class="eip-contents">
+                        <div class="eip-icon eip-type-bronze">
+                           <a href="http://qms.quectel.com:8561/Login">
+                              <svg class="fa d-icon d-icon-retweet svg-icon svg-string" xmlns="http://www.w3.org/2000/svg">
+                                 <use xlink:href="#retweet"></use>
+                              </svg>
+                           </a>
+                        </div>
+                        <div class="eip-info">
+                           <div class="eip-info-item">
+                              <a href="http://qms.quectel.com:8561/Login" class="eip-link">
+                                 <h3>QVMS 版本管理</h3>
+                                 <div class="eip-summary">Version Management System
+                                    <br><span class="primary-low-mid font-down-1">版本管理系统</span>
+                                 </div>
+                              </a>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  
+                  <div class="eip-card medium eip-shadow">
+                     <div class="eip-contents">
+                        <div class="eip-icon eip-type-bronze">
+                           <a href="https://atehub.quectel.com:808/login">
+                              <svg class="fa d-icon d-icon-tools svg-icon svg-string" xmlns="http://www.w3.org/2000/svg">
+                                 <use xlink:href="#tools"></use>
+                              </svg>
+                           </a>
+                        </div>
+                        <div class="eip-info">
+                           <div class="eip-info-item">
+                              <a href="https://atehub.quectel.com:808/login" target="_Blank" class="eip-link">
+                                 <h3>Equipments 设备管理</h3>
+                                 <div class="eip-summary">Equipment Management System<br><span class="primary-low-mid font-down-1">设备管理系统</span>
+                                 </div>
+                              </a>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="eip-card medium eip-shadow">
+                     <div class="eip-contents">
+                        <div class="eip-icon eip-type-bronze">
+                           <a href="http://qms.quectel.com:8563/" target="_Blank">
+                              <svg class="fa d-icon d-icon-user-clock svg-icon svg-string" xmlns="http://www.w3.org/2000/svg">
+                                 <use xlink:href="#user-clock"></use>
+                              </svg>
+                           </a>
+                        </div>
+                        <div class="eip-info">
+                           <div class="eip-info-item">
+                              <a href="http://qms.quectel.com:8563/" target="_Blank" class="eip-link">
+                                 <h3>ORT System ORT 管理</h3>
+                                 <div class="eip-summary">ORT Management System<br><span class="primary-low-mid font-down-1">ORT 高效管理系统</span></div>
+                              </a>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="eip-card medium  eip-shadow">
+                     <div class="eip-contents">
+                        <div class="eip-icon eip-type-bronze">
+                           <a href="http://qms.quectel.com:8562/" target="_Blank">
+                              <svg class="fa d-icon d-icon-file-alt svg-icon svg-string" xmlns="http://www.w3.org/2000/svg">
+                                 <use xlink:href="#file-alt"></use>
+                              </svg>
+                           </a>
+                        </div>
+                        <div class="eip-info">
+                           <div class="eip-info-item">
+                              <a href="http://qms.quectel.com:8562/" target="_Blank" class="eip-link">
+                                 <h3>Production Log  生产日志</h3>
+                                 <div class="eip-summary">Production Log Management System<br><span class="primary-low-mid font-down-1">生产日志管理系统</span></div>
+                              </a>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="eip-card medium  eip-shadow">
+                     <div class="eip-contents">
+                        <div class="eip-icon eip-type-bronze">
+                           <a href="http://qms.quectel.com:8558/" target="_Blank">
+                              <svg class="fa d-icon d-icon-certificate svg-icon svg-string" xmlns="http://www.w3.org/2000/svg">
+                                 <use xlink:href="#certificate"></use>
+                              </svg>
+                           </a>
+                        </div>
+                        <div class="eip-info">
+                           <div class="eip-info-item">
+                              <a href="http://qms.quectel.com:8558/" target="_Blank" class="eip-link">
+                                 <h3>Certification 认证管理</h3>
+                                 <div class="eip-summary">Certification Management System<br><span class="primary-low-mid font-down-1">认证管理系统</span></div>
+                              </a>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="eip-card medium  eip-shadow">
+                     <div class="eip-contents">
+                        <div class="eip-icon eip-type-bronze">
+                           <a href="http://bugzilla.quectel.com:6060/bugzilla/editusers.cgi" target="_Blank">
+                              <svg class="fa d-icon d-icon-bug svg-icon svg-string" xmlns="http://www.w3.org/2000/svg">
+                                 <use xlink:href="#bug"></use>
+                              </svg>
+                           </a>
+                        </div>
+                        <div class="eip-info">
+                           <div class="eip-info-item">
+                              <a href="http://bugzilla.quectel.com:6060/bugzilla/editusers.cgi" target="_Blank" class="eip-link">
+                                 <h3>Bugzilla Bug 系统</h3>
+                                 <div class="eip-summary">Bug-Tracking Management System<br><span class="primary-low-mid font-down-1">Bugzilla 缺陷跟踪管理系统</span></div>
+                              </a>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="eip-card medium  eip-shadow">
+                     <div class="eip-contents">
+                        <div class="eip-icon eip-type-bronze">
+                           <a href="http://47.100.48.66/" target="_Blank">
+                              <svg class="fa d-icon d-icon-check-square svg-icon svg-string" xmlns="http://www.w3.org/2000/svg">
+                                 <use xlink:href="#check-square"></use>
+                              </svg>
+                           </a>
+                        </div>
+                        <div class="eip-info">
+                           <div class="eip-info-item">
+                              <a href="http://47.100.48.66/" target="_Blank" class="eip-link">
+                                 <h3>Quality 质量系统</h3>
+                                 <div class="eip-summary">Quality Management System<br><span class="primary-low-mid font-down-1">移远质量管理系统</span></div>
+                              </a>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="eip-card medium  eip-shadow">
+                     <div class="eip-contents">
+                        <div class="eip-icon eip-type-bronze">
+                           <a href="http://atehub.quectel.com:8183/login" target="_Blank">
+                              <svg class="fa d-icon d-icon-user-edit svg-icon svg-string" xmlns="http://www.w3.org/2000/svg">
+                                 <use xlink:href="#user-edit"></use>
+                              </svg>
+                           </a>
+                        </div>
+                        <div class="eip-info">
+                           <div class="eip-info-item">
+                              <a href="http://atehub.quectel.com:8183/login" target="_Blank" class="eip-link">
+                                 <h3>Test Resource 测试资源</h3>
+                                 <div class="eip-summary">Test Resource Management System<br><span class="primary-low-mid font-down-1">测试资源管理系统</span></div>
+                              </a>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="eip-card medium  eip-shadow">
+                     <div class="eip-contents">
+                        <div class="eip-icon eip-type-bronze">
+                           <a href="http://atehub.quectel.com:8184/login" target="_Blank">
+                              <svg class="fa d-icon d-icon-server svg-icon svg-string" xmlns="http://www.w3.org/2000/svg">
+                                 <use xlink:href="#server"></use>
+                              </svg>
+                           </a>
+                        </div>
+                        <div class="eip-info">
+                           <div class="eip-info-item">
+                              <a href="http://atehub.quectel.com:8184/login" target="_Blank" class="eip-link">
+                                 <h3>Server 服务器监控</h3>
+                                 <div class="eip-summary">Quality Management System<br><span class="primary-low-mid font-down-1">移远质量管理系统</span></div>
+                              </a>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="eip-card medium  eip-shadow">
+                     <div class="eip-contents">
+                        <div class="eip-icon eip-type-bronze">
+                           <a href=" https://ticket.quectel.com" target="_Blank">
+                              <svg class="fa d-icon d-icon-chalkboard svg-icon svg-string" xmlns="http://www.w3.org/2000/svg">
+                                 <use xlink:href="#chalkboard"></use>
+                              </svg>
+                           </a>
+                        </div>
+                        <div class="eip-info">
+                           <div class="eip-info-item">
+                              <a href=" https://ticket.quectel.com" target="_Blank" class="eip-link">
+                                 <h3>JIRA 缺陷跟踪</h3>
+                                 <div class="eip-summary">JIRA proprietary issue tracking System<br><span class="primary-low-mid font-down-1">JIRA 缺陷跟踪管理系统</span></div>
+                              </a>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="eip-card medium  eip-shadow">
+                     <div class="eip-contents">
+                        <div class="eip-icon eip-type-bronze">
+                           <a href="http://atehub.quectel.com/zabbix/" target="_Blank">
+                              <svg class="fa d-icon d-icon-tv svg-icon svg-string" xmlns="http://www.w3.org/2000/svg">
+                                 <use xlink:href="#tv"></use>
+                              </svg>
+                           </a>
+                        </div>
+                        <div class="eip-info">
+                           <div class="eip-info-item">
+                              <a href="http://atehub.quectel.com/zabbix/" target="_Blank" class="eip-link">
+                                 <h3>Zabbix Server 系统监视</h3>
+                                 <div class="eip-summary">Quectel Zabbix Server<br><span class="primary-low-mid font-down-1">Zabbix 监控系统</span></div>
+                              </a>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="eip-card medium  eip-shadow">
+                     <div class="eip-contents">
+                        <div class="eip-icon eip-type-bronze">
+                           <a href="https://knowledge.quectel.com" target="_Blank">
+                              <svg class="fa d-icon d-icon-people-carry svg-icon svg-string" xmlns="http://www.w3.org/2000/svg">
+                                 <use xlink:href="#people-carry"></use>
+                              </svg>
+                           </a>
+                        </div>
+                        <div class="eip-info">
+                           <div class="eip-info-item">
+                              <a href="https://knowledge.quectel.com" target="_Blank" class="eip-link">
+                                 <h3>Confluence 团队协同</h3>
+                                 <div class="eip-summary">Confluence collaboration software program<br><span class="primary-low-mid font-down-1">Confluence 团队协同与知识管理工具</span></div>
+                              </a>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="eip-card medium  eip-shadow">
+                     <div class="eip-contents">
+                        <div class="eip-icon eip-type-bronze">
+                           <a href="http://atehub.quectel.com:8185/login" target="_Blank">
+                              <svg class="fa d-icon d-icon-dice-three svg-icon svg-string" xmlns="http://www.w3.org/2000/svg">
+                                 <use xlink:href="#dice-three"></use>
+                              </svg>
+                           </a>
+                        </div>
+                        <div class="eip-info">
+                           <div class="eip-info-item">
+                              <a href="http://atehub.quectel.com:8185/login" target="_Blank" class="eip-link">
+                                 <h3>Sampling 抽测系统</h3>
+                                 <div class="eip-summary">Sampling System<br><span class="primary-low-mid font-down-1">Quectel Sampling 抽测系统</span></div>
+                              </a>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="eip-card medium  eip-shadow">
+                     <div class="eip-contents">
+                        <div class="eip-icon eip-type-bronze">
+                           <a href="http://dfota.quectel.com:8081/login" target="_Blank">
+                              <svg class="fa d-icon d-icon-cogs svg-icon svg-string" xmlns="http://www.w3.org/2000/svg">
+                                 <use xlink:href="#cogs"></use>
+                              </svg>
+                           </a>
+                        </div>
+                        <div class="eip-info">
+                           <div class="eip-info-item">
+                              <a href="http://dfota.quectel.com:8081/login" target="_Blank" class="eip-link">
+                                 <h3>DFOTA DFOTA 系统</h3>
+                                 <div class="eip-summary">DFOTA System<br><span class="primary-low-mid font-down-1">DFOTA 系统</span></div>
+                              </a>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="eip-card medium eip-shadow">
+                     <div class="eip-contents">
+                        <div class="eip-icon eip-type-bronze">
+                           <a href="http://qms.quectel.com:1002/Login" target="_Blank">
+                              <svg class="fa d-icon d-icon-chalkboard svg-icon svg-string" xmlns="http://www.w3.org/2000/svg">
+                                 <use xlink:href="#chalkboard"></use>
+                              </svg>
+                           </a>
+                        </div>
+                        <div class="eip-info">
+                           <div class="eip-info-item">
+                              <a href="http://qms.quectel.com:1002/Login" target="_Blank" class="eip-link">
+                                 <h3>Gold Board 金板管理</h3>
+                                 <div class="eip-summary">Gold Board Management System<br><span class="primary-low-mid font-down-1">金板管理系统</span></div>
+                              </a>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="eip-card medium  eip-shadow">
+                     <div class="eip-contents">
+                        <div class="eip-icon eip-type-bronze">
+                           <a href="http://10.88.154.105:8084/" target="_Blank">
+                              <svg class="fa d-icon d-icon-restroom svg-icon svg-string" xmlns="http://www.w3.org/2000/svg">
+                                 <use xlink:href="#restroom"></use>
+                              </svg>
+                           </a>
+                        </div>
+                        <div class="eip-info">
+                           <div class="eip-info-item">
+                              <a href="http://10.88.154.105:8084/" target="_Blank" class="eip-link">
+                                 <h3>Toilet 洗手间</h3>
+                                 <div class="eip-summary">Toilet Vacancy System<br><span class="primary-low-mid font-down-1">洗手间显示系统</span></div>
+                              </a>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <!--/END SINGLE BOX-->
+         </div>
+         <!--/END BANNER CONTENT WRAP-->
+      </div>
+      <!--/END ROW-->
+   </div>
+   <!--/END CONTAINER-->
+</section>
+<!--/END BANNER BOX SECTION-->
+</div>
+    
+    
+  {{/if}}
+</script>

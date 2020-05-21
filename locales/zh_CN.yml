@@ -2,7 +2,7 @@ zh_CN:
   apps_title: "应用中心"
   apps_description: "下面部分应用需在公司网络环境下使用，如有问题，请联系相关负责人。"
   
-  apps_internal_title: "Internal Applications"
+  apps_internal_title: "内部应用"
   apps_internal_1_title: "BPM 流程管理"
   apps_internal_1_text: "业务管理流程，采购申请，报销等"
   apps_internal_1_url: "http://bpm.quectel.com/"

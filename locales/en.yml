@@ -62,9 +62,18 @@ en:
   apps_open_6_text: "Customer Inquiry Management System"
   apps_open_6_url: "https://e-service.quectel.com/en/support/login/new"
   
-  apps_system_title: "Service $ Management System"
+  apps_system_title: "Service & Management System"
   apps_system_1_title: "Property"
   apps_system_1_text: "Intellectual Property Management System"
   apps_system_1_url: "https://quectel-sh.ipms.innosnap.com/users/login"
+  apps_system_2_title: "Patent"
+  apps_system_2_text: "Patent database Management System"
+  apps_system_2_url: "https://analytics.zhihuiya.com/"
+  apps_system_3_title: "QVMS"
+  apps_system_3_text: "Version Management System"
+  apps_system_3_url: "http://qms.quectel.com:8561/Login"
+  apps_system_4_title: "Patent"
+  apps_system_4_text: "Patent database Management System"
+  apps_system_4_url: "https://analytics.zhihuiya.com/"
   
   
